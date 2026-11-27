@@ -14,7 +14,7 @@ test('deliberate details fetch starts at once; the later modal can read the same
   }
   const request = startBusinessDetailsRequest(row, { fetcher })
   assert.equal(calls.length, 1)
-  assert.equal(calls[0].path, '/api/public/discovery/business/sofia-example')
+  assert.equal(calls[0].path, '/api/public/discovery/business/sofia-example?photos=1')
   assert.equal(calls[0].options.cache, 'no-store')
   assert.equal(calls[0].options.credentials, 'same-origin')
   assert.deepEqual(await request.result, { status: 'ready', business: row })
@@ -22,7 +22,7 @@ test('deliberate details fetch starts at once; the later modal can read the same
   assert.equal(calls.length, 1)
 
   const preview = startBusinessDetailsRequest(row, { fetcher, preview: true })
-  assert.equal(calls[1].path, '/dev/sofia-catalogue/business/sofia-example')
+  assert.equal(calls[1].path, '/dev/sofia-catalogue/business/sofia-example?photos=1')
   assert.equal((await preview.result).status, 'ready')
   assert.equal(needsBusinessDetails({ ...row, source: 'gorez' }, true), false)
   assert.equal(needsBusinessDetails(row, true), true)

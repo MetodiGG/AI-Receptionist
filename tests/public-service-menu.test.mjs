@@ -9,10 +9,9 @@ import { catalogueBusinessDetails, detailPriceLabel } from '../lib/discovery/bus
 import { SOFIA_CATALOGUE } from '../lib/discovery/sofia-catalogue.mjs'
 import { catalogueDetailsWithServicePhotos } from '../lib/catalogue-service-photo-keys.mjs'
 import { presentPublicService } from '../lib/locale/public-content-server.mjs'
-const { PublicServiceMenu } = await loadPublicServiceMenu({
-  ServiceThumbnail: ({ service, size, className }) => React.createElement('img', { src: '/service-photos/test.webp', alt: service.name, className, 'data-size': size }),
-})
-const render = (services, props = {}) => renderToStaticMarkup(React.createElement(PublicServiceMenu, { services, business: { category: 'nails' }, ...props }))
+import { publicDetailPhotoPayload } from '../lib/public-detail-photo-payload.mjs'
+const { PublicServiceMenu } = await loadPublicServiceMenu()
+const render = (services, props = {}) => renderToStaticMarkup(React.createElement(PublicServiceMenu, { services, ...props }))
 const escape = value => renderToStaticMarkup(React.createElement(React.Fragment, null, value))
 const withoutDetails = html => html.replace(/<details\b[^>]*>[\s\S]*?<\/details>/gu, '')
 const summaries = html => [...html.matchAll(/<summary\b[^>]*>([\s\S]*?)<\/summary>/gu)].map(match => match[1])
@@ -26,11 +25,19 @@ test('the actual unified menu renders every original service once, including sam
     { name: 'Range variant', category: 'nails', price: 40, priceMaximum: 60, priceKind: 'range', currency: 'EUR' },
     { name: 'Incomplete range', category: 'nails', price: 90, priceKind: 'range', currency: 'EUR' },
   ]
-  const before = structuredClone(services), html = render(services)
+  const before = structuredClone(services)
+  const photoCandidates = services.map((service, index) => [{
+    src: `/service-photos/fixture-${index}-v1.webp`,
+    type: 'photo', photoMatch: 'exact', illustration: false, alt: { bg: service.name, en: service.name },
+  }])
+  const html = render(services, { photoCandidates })
   assert.deepEqual(services, before)
   assert.equal((html.match(/data-service-price-card=/gu) || []).length, services.length)
   assert.equal((html.match(/class="public-service-menu-name">Same variant<\/strong>/gu) || []).length, 2)
-  assert.equal((html.match(/data-size="128"/gu) || []).length, services.length)
+  assert.equal((html.match(/class="service-thumbnail-image"[^>]*width="128" height="128"/gu) || []).length, services.length)
+  for (const [index, row] of [...html.matchAll(/<li\b[^>]*data-service-price-card[^>]*>([\s\S]*?)<\/li>/gu)].entries()) {
+    assert.ok(row[1].includes(photoCandidates[index][0].src), 'choices stay bound to each service, even when names repeat')
+  }
   assert.match(html, /от 30,00/u)
   assert.match(html, /40,00[\s\S]*60,00/u)
   assert.match(html, /0,00/u)
@@ -104,7 +111,7 @@ test('the actual Alyoga tile does not repeat its individual session or 60 minute
   assert.equal(services.length, 1)
   const before = JSON.stringify(services)
   for (const locale of ['bg', 'en']) {
-    const html = render(services, { locale, business: { ...business, source: 'catalogue' } }), visible = withoutDetails(html)
+    const html = render(services, { locale }), visible = withoutDetails(html)
     assert.match(visible, locale === 'en' ? /Individual Yoga Practice — 60 minutes/u : /Индивидуална йога практика — 60 минути/u)
     assert.match(visible, locale === 'en' ? /35\.79/u : /35,79/u)
     assert.doesNotMatch(visible, /public-service-menu-(?:unit|duration)|индивидуална практика, 60 минути|individual practice, 60 minutes/u)
@@ -119,21 +126,32 @@ test('the actual Alyoga tile does not repeat its individual session or 60 minute
   assert.equal(JSON.stringify(services), before)
 })
 
-test('real service thumbnails omit the active hero and retain a distinct local image', async () => {
-  const { PublicServiceMenu: RealMenu } = await loadPublicServiceMenu()
+test('real service thumbnails omit the active hero and retain a distinct local image', () => {
   const date = Date.parse('2026-11-26T12:00:00Z')
   const renderBranch = id => {
     const record = SOFIA_CATALOGUE.find(row => row.id === id)
     const details = catalogueDetailsWithServicePhotos(record, date)
-    return renderToStaticMarkup(React.createElement(RealMenu, {
-      services: details.services.map(service => presentPublicService(service, record)),
-      business: { ...record, details, source: 'catalogue' },
-    }))
+    const services = details.services.map(service => presentPublicService(service, record))
+    const business = { ...record, details, source: 'catalogue' }
+    return render(services, { photoCandidates: publicDetailPhotoPayload(business, services) })
   }
   const alyoga = renderBranch('sofia-alyoga-benkovski')
   assert.match(alyoga, /go-detail-individual-yoga-20261126-v1\.webp/u)
   assert.doesNotMatch(alyoga, /\/service-photos\/one-to-one-yoga-v1\.webp/u)
   assert.match(renderBranch('sofia-nosia-todor-alexandrov17'), /go-nosia-folk-dance-beginners-20261125-v1\.webp/u)
+})
+
+test('a reused cover or an unaligned payload cannot assign another service image', () => {
+  const service = { name: 'A private lesson', category: 'education', price: 25, currency: 'EUR' }
+  const cover = '/service-photos/fixture-reused-cover-v1.webp'
+  const distinctPhoto = '/service-photos/fixture-distinct-lesson-v1.webp'
+  const html = render([service], { coverSources: [cover + '?width=320'],
+    photoCandidates: [[{ src: cover }, { src: distinctPhoto }]] })
+  assert.ok(html.includes(distinctPhoto))
+  assert.ok(!html.includes(cover))
+  const misaligned = render([service], { photoCandidates: [[{ src: cover }], [{ src: distinctPhoto }]] })
+  assert.match(misaligned, /A private lesson/u)
+  assert.doesNotMatch(misaligned, /<img|fixture-(?:reused|distinct)/u)
 })
 
 test('the exact 180-character disclosure boundary keeps short prose visible and folds the whole longer source without a partial preview', () => {
@@ -154,12 +172,20 @@ test('existing service fragments and source order survive grouping; Bulgarian an
     { name: 'Мъжко подстригване', category: 'hair', price: 40, currency: 'EUR' },
   ].map(row => presentPublicService(row, { category: row.category }))
   const anchors = new Map(services.map((service, index) => [service, 'stable-service-' + index]))
+  const photoCandidates = services.map((_service, index) => [{ src: `/service-photos/ordered-${index}-v1.webp`, photoMatch: 'exact' }])
   for (const locale of ['bg', 'en']) {
-    const html = render(services, { locale, serviceAnchors: anchors, groupHeading: 'h3' })
+    const html = render(services, { locale, serviceAnchors: anchors, groupHeading: 'h3', photoCandidates })
     const ids = [...html.matchAll(/id="(stable-service-[^"]+)"/gu)].map(match => match[1])
     assert.deepEqual(ids, ['stable-service-0', 'stable-service-1', 'stable-service-2'])
     assert.equal((html.match(/<h3 class="public-service-menu-groupTitle">/gu) || []).length, 2)
     for (const service of services) assert.ok(html.includes(escape(locale === 'en' ? service.presentationEn.name : service.name)))
+    const regroupedServices = [services[0], services[2], services[1]]
+    const regroupedHtml = render(regroupedServices, { locale, serviceAnchors: anchors, photoCandidates: [photoCandidates[0], photoCandidates[2], photoCandidates[1]] })
+    const regroupedRows = [...regroupedHtml.matchAll(/<li\b[^>]*id="stable-service-(\d+)"[^>]*>([\s\S]*?)<\/li>/gu)]
+    assert.equal(regroupedRows.length, services.length)
+    for (const [, index, markup] of regroupedRows) {
+      assert.ok(markup.includes(photoCandidates[Number(index)][0].src), 'grouping never reassigns an image to a neighboring offer')
+    }
   }
 })
 

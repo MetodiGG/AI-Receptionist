@@ -11,6 +11,7 @@ import { readCatalogueSeoProfile } from '../../../../lib/catalogue-profile-serve
 import { catalogueProfileMetadata, catalogueProfilePath, catalogueProfileStructuredData } from '../../../../lib/catalogue-profile.mjs'
 import { localizedUrl, safeJsonLd } from '../../../../lib/seo.mjs'
 import { businessDetailHours, businessDetailServices, groupDetailServices } from '../../../../lib/discovery/business-details.mjs'
+import { publicDetailPhotoPayload } from '../../../../lib/public-detail-photo-payload.mjs'
 import { railCategory, railDirections, railExternalAction } from '../../../../lib/discovery/rail.mjs'
 import { DISCOVERY_COPY } from '../../../../lib/discovery/copy.mjs'
 import { OSM_COPYRIGHT_URL, OFFICIAL_SOFIA_LICENSE_URL } from '../../../../lib/discovery/catalogue-attribution.mjs'
@@ -59,7 +60,7 @@ export default async function CatalogueBusiness({ params, searchParams }) {
       {action && <p className="catalogue-booking-notice">{action.kind === 'phone' ? (en ? 'Arrange your time by phone. GoRez does not confirm phone appointments.' : 'Уговори час по телефон. GoRez не потвърждава телефонни резервации.') : (en ? 'Booking continues on the business website. Its calendar is not synchronized with GoRez.' : 'Записването продължава в сайта на бизнеса. Календарът му не е синхронизиран с GoRez.')}</p>}
       <section className="profile-services business-profile-section" aria-labelledby="catalogue-services-heading"><h2 id="catalogue-services-heading">{copy.servicesPrices}</h2>
         {business.provenance?.kind === 'platform_owner_confirmed' && <p className="business-details-note">{copy.platformConfirmedSource}</p>}
-        {services.length ? <PublicServiceMenu services={services} business={hero} locale={locale} copy={copy} serviceAnchors={serviceAnchors} groupHeading="h3"/> : <p>{copy.noServices}</p>}
+        {services.length ? <PublicServiceMenu services={services} photoCandidates={publicDetailPhotoPayload(business, services)} locale={locale} copy={copy} serviceAnchors={serviceAnchors} groupHeading="h3"/> : <p>{copy.noServices}</p>}
       </section>
       {hours.length > 0 && <section className="business-profile-section"><details className="business-weekly-hours profile-hours"><summary><Icon name="clock"/><span>{copy.openingHours}</span><Icon name="chevronDown"/></summary><dl>{hours.map(day => <div key={day.weekday}><dt>{copy.weekdays[day.weekday - 1]}</dt><dd>{day.byAppointment ? copy.byAppointment : day.periods.length ? day.periods.join(', ') : copy.closedDay}</dd></div>)}</dl></details></section>}
       <p className="catalogue-profile-source"><a href={business.website} target="_blank" rel="noopener noreferrer">{business.provenance?.kind === 'platform_owner_confirmed' ? copy.mapProfileLabel : copy.websiteLabel}</a></p>

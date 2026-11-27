@@ -42,7 +42,7 @@ const noop = () => null
 const icon = { Icon: () => createElement('svg', { 'aria-hidden': true }) }
 const thumbnail = await load('service-thumbnail', { './icon': icon, '../lib/service-thumbnail.mjs': serviceArt,
   '../lib/discovery-photo-presentation.mjs': publicPhotoPresentation })
-const publicServiceMenu = await loadPublicServiceMenu({ ServiceThumbnail: thumbnail.ServiceThumbnail, Icon: icon.Icon })
+const publicServiceMenu = await loadPublicServiceMenu({ Icon: icon.Icon })
 const cover = await load('business-cover-photo', { '../lib/business-cover-photo.mjs': businessCover,
   '../lib/discovery-photo-presentation.mjs': publicPhotoPresentation })
 const shared = {
@@ -110,7 +110,8 @@ test('compact discovery previews use the business photo and show up to two servi
 
 test('the full catalogue menu retains the service description, duration, and published price link', () => {
   const [first, ...others] = services
-  const row = { ...business, source: 'catalogue', details: { services: [{ ...first, priceKind: 'from', description: 'Published service terms', priceSourceUrl: 'https://example.com/prices' }, ...others] } }
+  const row = { ...business, source: 'catalogue', detailServicePhotos: [[], []],
+    details: { services: [{ ...first, priceKind: 'from', description: 'Published service terms', priceSourceUrl: 'https://example.com/prices' }, ...others] } }
   const [manicure, pedicure] = serviceRows(render(DiscoveryBusinessDetails, { row, locale: 'en', preview: true }))
   assert.match(manicure, /data-service-photo-unavailable="true"[\s\S]*class="public-service-menu-name">Manicure<\/strong>/)
   assert.match(manicure, /class="public-service-menu-duration">35 min<\/span>/)

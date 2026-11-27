@@ -18,6 +18,7 @@ import * as attribution from '../lib/discovery/catalogue-attribution.mjs'
 import { businessCoverPhoto } from '../lib/business-cover-photo.mjs'
 import * as publicContent from '../lib/locale/public-content.mjs'
 import { presentPublicService } from '../lib/locale/public-content-server.mjs'
+import * as publicDetailPhotos from '../lib/public-detail-photo-payload.mjs'
 
 const now = Date.parse('2026-11-14T12:00:00Z')
 const real = SOFIA_CATALOGUE.find(row => row.id === 'sofia-in-beauty')
@@ -135,12 +136,12 @@ const page = await compile('../app/businesses/catalogue/[id]/page.js', {
   '../../../../components/home-link': { HomeLink: () => React.createElement('a', { href: '/' }, 'Home') },
   '../../../../components/business-profile': { BusinessProfileHeader: ({ business, shareUrl }) => React.createElement('header', { 'data-share-url': shareUrl, 'data-private-service-inventory': Boolean(business.details || business.services || business.publicServiceNames),
     'data-activity-cover': business.illustrativeCoverPhotoKey, 'data-resolved-cover': businessCoverPhoto(business).src }, React.createElement('h1', null, business.name), business.address) },
-  '../../../../components/service-thumbnail': { ServiceThumbnail: ({ service }) => React.createElement('img', { src: '/service-photos/test.webp', alt: service.name }) },
   '../../../../components/public-action': publicAction,
   '../../../../components/public-service-menu': publicServiceMenu,
   '../../../../components/icon': { Icon: ({ name }) => React.createElement('svg', { 'data-icon': name, 'aria-hidden': true }) },
   '../../../../lib/catalogue-profile-server': { readCatalogueSeoProfile: async () => responseProfile },
   '../../../../lib/catalogue-profile.mjs': profile, '../../../../lib/seo.mjs': seo,
+  '../../../../lib/public-detail-photo-payload.mjs': publicDetailPhotos,
   '../../../../lib/locale/public-content.mjs': publicContent,
   '../../../../lib/discovery/business-details.mjs': details, '../../../../lib/discovery/rail.mjs': rail,
   '../../../../lib/discovery/service-presentation.mjs': servicePresentation, '../../../../lib/discovery/copy.mjs': copy,

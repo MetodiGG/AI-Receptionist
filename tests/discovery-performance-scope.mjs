@@ -4,6 +4,7 @@ import { lstatSync, readFileSync } from 'node:fs'
 import { fileURLToPath } from 'node:url'
 import receipt from './fixtures/discovery-performance-approval.json' with { type: 'json' }
 import { detailPreviewAllowsFileChange, detailPreviewAllowsNewFile, detailPreviewPriorSource } from './public-detail-photo-preview-scope.mjs'
+import { preparedPhotosAllowsFileChange, preparedPhotosAllowsNewFile } from './mobile-details-prepared-photos-scope.mjs'
 
 const root = fileURLToPath(new URL('../', import.meta.url))
 const sha = bytes => createHash('sha256').update(bytes).digest('hex')
@@ -17,8 +18,8 @@ function currentHash(path, digest) {
   } catch { return false }
 }
 
-export const discoveryPerformanceAllowsFileChange = path => detailPreviewAllowsFileChange(path) || currentHash(path, receipt.changed[path]?.after)
-export const discoveryPerformanceAllowsNewFile = path => detailPreviewAllowsNewFile(path) || currentHash(path, receipt.added[path])
+export const discoveryPerformanceAllowsFileChange = path => preparedPhotosAllowsFileChange(path) || detailPreviewAllowsFileChange(path) || currentHash(path, receipt.changed[path]?.after)
+export const discoveryPerformanceAllowsNewFile = path => preparedPhotosAllowsNewFile(path) || detailPreviewAllowsNewFile(path) || currentHash(path, receipt.added[path])
 export const discoveryPerformanceAllowsPath = path => discoveryPerformanceAllowsFileChange(path) || discoveryPerformanceAllowsNewFile(path)
 
 // Keep previous approvals enforceable. Only revert a reviewed whole-file

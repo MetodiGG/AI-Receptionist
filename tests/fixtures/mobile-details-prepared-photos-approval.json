@@ -1,0 +1,29 @@
+{
+  "baseline": "0bb9c0a4e242b1321b2d115576bcc368dad8e204",
+  "changed": {
+    "app/businesses/catalogue/[id]/page.js": {
+      "before": "afaade2f4142a6ca2bf3718c1b7844a7a57c31122994f9a95271aceb7993c916",
+      "after": "2caadbb7b74da27df3c86f4bbb211095bcdd0440e2848601f62d2f00f950f9cc"
+    },
+    "components/discovery-business-details.js": {
+      "before": "19ad3bec867e99c5f67c458a7d9e79170ac8e259da82cd96f2a4b78942d27639",
+      "after": "92bcce0485f4ec7c473d70b31c1f3cd122ba46cf028e9c6a2f8a3bdc54ff402b"
+    },
+    "components/public-service-menu.js": {
+      "before": "6d60ec86da4f76d3ba9edca18c1c334c8c10d00080333f99565a1c90f7c07abf",
+      "after": "716415092746c5b4aee5686b689b9a6ae41db257edf90fc3b4913892b8b9da42"
+    },
+    "lib/discovery/detail-request.mjs": {
+      "before": "a926fc5f02f22d80ddcc4108e811e85f5f706d06e8d52adfefe93427e71ea731",
+      "after": "9b6027f11a932bac177c37611d6a16c44c0a8ecf5681c3bdc31742821cbc3ac7"
+    },
+    "lib/discovery/public-details.mjs": {
+      "before": "1f91e71313b520d8ff8f82c6e2f60d8895be1ce531d12732c2bcccac25a5358c",
+      "after": "5df97baf6cf0defe8ca8cc2d43b9bc5c2f47606904cc4ceb789ed3aec32b7138"
+    }
+  },
+  "added": {
+    "components/prepared-service-thumbnail.js": "3c957751a42839b3efd7f5058123cab9abfab2315496fddc6645a0e771806eb7",
+    "lib/public-detail-photo-payload.mjs": "49b2c7dc2600cd61a687a87a6e8fac3c1b434e6ca2c91f559f0b1427680245b1"
+  }
+}

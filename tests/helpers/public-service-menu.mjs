@@ -2,6 +2,7 @@
 // class names and explicitly injected visual children may be stubbed.
 import { readFile } from 'node:fs/promises'
 import { createRequire } from 'node:module'
+import { createElement } from 'react'
 const runtimeRequire = createRequire(new URL('../../components/public-service-menu.js', import.meta.url))
 const swcRequire = createRequire(import.meta.url)
 const { loadBindings, transform } = swcRequire('next/dist/build/swc')
@@ -16,12 +17,21 @@ async function compile(path, imports = {}) {
   return module.exports
 }
 
-export async function loadPublicServiceMenu({ ServiceThumbnail, Icon } = {}) {
+export async function loadPublicServiceMenu({ PreparedServiceThumbnail, ServiceThumbnail, Icon } = {}) {
   const css = await readFile(new URL('../../components/public-service-menu.module.css', import.meta.url), 'utf8')
   const styles = Object.freeze(Object.fromEntries([...css.matchAll(/\.([a-zA-Z][\w-]*)/g)].map(match => [match[1], 'public-service-menu-' + match[1]])))
-  const thumbnail = ServiceThumbnail ? { ServiceThumbnail } : await compile('components/service-thumbnail.js')
+  const thumbnail = PreparedServiceThumbnail ? { PreparedServiceThumbnail }
+    : ServiceThumbnail ? { PreparedServiceThumbnail: ({ candidates, ...props }) => createElement(ServiceThumbnail, { ...props, service: candidates?.[0]?.fixtureService }) }
+    : await compile('components/prepared-service-thumbnail.js')
   const icon = Icon ? { Icon } : await compile('components/icon.js')
-  return compile('components/public-service-menu.js', {
-    './service-thumbnail': thumbnail, './icon': icon, './public-service-menu.module.css': styles,
+  const { PublicServiceMenu } = await compile('components/public-service-menu.js', {
+    './prepared-service-thumbnail': thumbnail, './icon': icon, './public-service-menu.module.css': styles,
   })
+  if (!ServiceThumbnail) return { PublicServiceMenu }
+  // Existing text/price surface fixtures can inject their known visual stub
+  // while keeping catalogue resolution entirely out of the menu under test.
+  return {
+    PublicServiceMenu: ({ services, photoCandidates = services.map(fixtureService => [{ fixtureService }]), ...props }) =>
+      createElement(PublicServiceMenu, { ...props, services, photoCandidates }),
+  }
 }

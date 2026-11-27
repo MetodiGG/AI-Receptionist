@@ -13,6 +13,7 @@ import { railCategory, railServiceItems } from '../lib/discovery/rail.mjs'
 import { isCataloguePhotoSource } from '../lib/catalogue-photo-view.mjs'
 import { DISCOVERY_COPY } from '../lib/discovery/copy.mjs'
 import { needsBusinessDetails, startBusinessDetailsRequest } from '../lib/discovery/detail-request.mjs'
+import { businessCoverPhotoSources } from '../lib/public-business-cover-photo.mjs'
 
 export function DiscoveryBusinessDetails({ row, locale = 'bg', preview = false, initialRequest = null, onClose, triggerRef, actions }) {
   const copy = DISCOVERY_COPY[locale] || DISCOVERY_COPY.bg, dialog = useRef(null), id = useId()
@@ -24,6 +25,9 @@ export function DiscoveryBusinessDetails({ row, locale = 'bg', preview = false, 
   const hasPrices = services.some(service => detailPriceLabel(service, locale) !== null)
   const description = publicProse(business.details?.description, locale, business.presentationEn?.description)
   const photos = business.source === 'gorez' ? business.photos || [] : isCataloguePhotoSource(business.photo?.src) ? [{ ...business.photo, alt: { [locale]: publicProse(business.photo.alt, locale) || business.name } }] : []
+  // The immediately visible result card may have a filtered activity cover
+  // that isn't in the independently fetched full profile. Exclude both.
+  const coverSources = full ? [...businessCoverPhotoSources(row), ...businessCoverPhotoSources(business)] : []
 
   useEffect(() => {
     if (!needsFetch) return
@@ -69,7 +73,7 @@ export function DiscoveryBusinessDetails({ row, locale = 'bg', preview = false, 
     <header><div>{row.source === 'gorez' && <p>{copy.partner}</p>}<h2 id={`${id}-title`}>{row.name}</h2><p className="business-details-category">{railCategory(business, locale)}</p></div></header>
     {previewServices.length > 0 && <section aria-labelledby={`${id}-services-preview`}>
       <h3 id={`${id}-services-preview`}>{copy.servicesPrices}</h3>
-      <PublicServiceMenu services={previewServices} business={row} locale={locale} copy={copy}/>
+      <PublicServiceMenu services={previewServices} locale={locale} copy={copy}/>
     </section>}
     {status === 'loading' && <div className="business-details-status"><BrandLoading locale={locale} label={copy.loadingDetails}/></div>}
     {status === 'error' && <div className="business-details-status" role="alert"><p>{copy.detailsError}</p><button className="secondary-button" type="button" onClick={() => setAttempt(value => value + 1)}>{copy.retryDetails}</button></div>}
@@ -78,7 +82,7 @@ export function DiscoveryBusinessDetails({ row, locale = 'bg', preview = false, 
       {business.provenance?.kind === 'platform_owner_confirmed' && <p className="business-details-note">{copy.platformConfirmedSource}</p>}
       {description && <p className="business-details-description">{description}</p>}
       <section aria-labelledby={`${id}-services`}><h3 id={`${id}-services`}>{copy.servicesPrices}</h3>
-        {services.length ? <PublicServiceMenu services={services} business={business} locale={locale} copy={copy}/> : <p>{copy.noServices}</p>}
+        {services.length ? <PublicServiceMenu services={services} photoCandidates={business.detailServicePhotos} coverSources={coverSources} locale={locale} copy={copy}/> : <p>{copy.noServices}</p>}
         {row.source === 'catalogue' && hasPrices && <p className="business-details-note">{copy.pricesNote}</p>}
       </section>
       <section className="business-details-hours-section" aria-labelledby={`${id}-hours`}>

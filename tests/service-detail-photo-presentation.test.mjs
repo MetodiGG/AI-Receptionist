@@ -15,6 +15,7 @@ import { REVIEWED_PARTNER_SERVICE_PHOTOS } from '../lib/partner-service-photos.m
 import { presentPublicService } from '../lib/locale/public-content-server.mjs'
 import { compareDiscoveryPhotos, fingerprintDiscoveryPhoto } from '../scripts/discovery-photo-fingerprint.mjs'
 import { loadPublicServiceMenu } from './helpers/public-service-menu.mjs'
+import { publicDetailPhotoPayload } from '../lib/public-detail-photo-payload.mjs'
 import generated from '../docs/service-detail-photo-provenance-20261126.json' with { type: 'json' }
 
 const date = Date.parse('2026-11-26T12:00:00Z')
@@ -152,8 +153,9 @@ test('the rendered service menu keeps illustrative provenance in accessible imag
   const business = asPublicBranch('sofia-abi-beauty-serdika')
   const services = business.details.services.filter(service => service.category === 'nails')
   assert.equal(services.length, 3)
+  const photoCandidates = publicDetailPhotoPayload(business, services)
   for (const locale of ['bg', 'en']) {
-    const html = renderToStaticMarkup(createElement(PublicServiceMenu, { services, business, locale }))
+    const html = renderToStaticMarkup(createElement(PublicServiceMenu, { services, photoCandidates, locale }))
     assert.equal((html.match(/class="service-thumbnail-image"/gu) || []).length, 3)
     assert.equal((html.match(/data-image-kind="ai-illustration"/gu) || []).length, 3)
     const labels = locale === 'en' ? /<img[^>]*alt="AI illustration · [^"]+"/gu : /<img[^>]*alt="AI илюстрация · [^"]+"/gu
@@ -165,7 +167,9 @@ test('the rendered service menu keeps illustrative provenance in accessible imag
   assert.ok(authentic)
   const partner = { id: authentic.businessId, source: 'gorez' }
   const service = { id: authentic.serviceId, name: authentic.name, category: authentic.category }
-  const partnerHtml = renderToStaticMarkup(createElement(PublicServiceMenu, { services: [service], business: partner, locale: 'bg' }))
+  const partnerHtml = renderToStaticMarkup(createElement(PublicServiceMenu, {
+    services: [service], photoCandidates: publicDetailPhotoPayload(partner, [service]), locale: 'bg',
+  }))
   assert.ok(partnerHtml.includes(`/service-photos/${authentic.photoId}-v1.webp`))
   assert.doesNotMatch(partnerHtml, /service-thumbnail-ai-label|data-image-kind="ai-illustration"/u)
 })

@@ -235,7 +235,7 @@ test('compact card has one stretched keyboard-accessible details trigger and one
   const dialog = await read('components/discovery-business-details.js')
   const request = await read('lib/discovery/detail-request.mjs')
   assert.match(request, /\/api\/public\/discovery\/business\//)
-  assert.match(request, /fetcher\(path \+ encodeURIComponent\(id\),/)
+  assert.match(request, /fetcher\(path \+ encodeURIComponent\(id\) \+ '\?photos=1',/)
   assert.match(request, /controller\.abort\(\)/)
   assert.match(dialog, /business: next, status: nextStatus/)
   assert.match(dialog, /event\.target\.closest\('dialog'\) === event\.currentTarget/)

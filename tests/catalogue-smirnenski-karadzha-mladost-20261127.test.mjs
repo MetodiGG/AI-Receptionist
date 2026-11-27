@@ -22,7 +22,7 @@ import { compareDiscoveryPhotos, fingerprintDiscoveryPhoto, readDiscoveryImage }
 import assets from '../docs/catalogue-coverage/verified-smirnenski-karadzha-mladost-images-20261127.json' with { type:'json' }
 import receipt from './fixtures/catalogue-smirnenski-karadzha-mladost-20261127.json' with { type:'json' }
 import { allowsFileChange, allowsNewFile, priorCatalogue, priorSource } from './catalogue-smirnenski-karadzha-mladost-20261127-scope.mjs'
-import { allowsNewFile as nextNew, priorCatalogue as nextPriorCatalogue, priorSource as nextPriorSource } from './catalogue-izgrev-hladilnika-20261127-scope.mjs'
+import { allowsFileChange as nextChange, allowsNewFile as nextNew, priorCatalogue as nextPriorCatalogue, priorSource as nextPriorSource } from './catalogue-izgrev-hladilnika-20261127-scope.mjs'
 
 const RAW_SOFIA_CATALOGUE = nextPriorCatalogue(RAW_LIVE), SOFIA_CATALOGUE = nextPriorCatalogue(LIVE)
 const now = Date.parse('2026-11-27T12:00:00Z')
@@ -41,7 +41,9 @@ test('intake preserves all previous non-test bytes and listings except the signp
   const changed = Object.keys(receipt.changed), added = Object.keys(receipt.added)
   const touched = [...new Set([...paths(git('diff','--name-only','--no-renames','-z',receipt.baseline,'--')),
     ...paths(git('ls-files','--others','--exclude-standard','-z'))])]
-  assert.deepEqual(touched.filter(p=>p!=='node_modules'&&!p.startsWith('tests/')&&!nextNew(p)).sort(),[...changed,...added].sort())
+  const reviewedPaths = new Set([...changed, ...added])
+  assert.deepEqual(touched.filter(path => path !== 'node_modules' && !path.startsWith('tests/') &&
+    (reviewedPaths.has(path) || !(nextChange(path) || nextNew(path)))).sort(), [...reviewedPaths].sort())
   for (const path of changed) {
     const original = git('show',receipt.baseline+':'+path), latest = readFileSync(new URL(path,cwd))
     const current = nextPriorSource(path,latest)

@@ -26,7 +26,7 @@ import locations from '../docs/catalogue-coverage/metro-city-and-lea-locations-2
 import schoolEvidence from '../docs/catalogue-coverage/avtostart-izgrev-20261127.json' with {type:'json'}
 import receipt from './fixtures/catalogue-izgrev-hladilnika-20261127.json' with {type:'json'}
 import { allowsFileChange, allowsNewFile, priorCatalogue, priorSource } from './catalogue-izgrev-hladilnika-20261127-scope.mjs'
-import { allowsNewFile as nextNew, priorCatalogue as nextPriorCatalogue, priorSource as nextPriorSource } from './catalogue-kriva-reka-darvenitsa-20261127-scope.mjs'
+import { allowsFileChange as nextChange, allowsNewFile as nextNew, priorCatalogue as nextPriorCatalogue, priorSource as nextPriorSource } from './catalogue-kriva-reka-darvenitsa-20261127-scope.mjs'
 
 const RAW_SOFIA_CATALOGUE=nextPriorCatalogue(RAW_LIVE), SOFIA_CATALOGUE=nextPriorCatalogue(LIVE)
 const cwd=new URL('../',import.meta.url), now=Date.parse('2026-11-27T12:00:00Z')
@@ -44,7 +44,9 @@ test('the intake is exactly additive except reviewed location paths, and old inv
   const changed=Object.keys(receipt.changed), added=Object.keys(receipt.added)
   const touched=[...new Set([...paths(git('diff','--name-only','--no-renames','-z',receipt.baseline,'--')),
     ...paths(git('ls-files','--others','--exclude-standard','-z'))])]
-  assert.deepEqual(touched.filter(p=>p!=='node_modules'&&!p.startsWith('tests/')&&!nextNew(p)).sort(),[...changed,...added].sort())
+  const reviewedPaths = new Set([...changed, ...added])
+  assert.deepEqual(touched.filter(path => path !== 'node_modules' && !path.startsWith('tests/') &&
+    (reviewedPaths.has(path) || !(nextChange(path) || nextNew(path)))).sort(), [...reviewedPaths].sort())
   for(const path of changed){
     const original=git('show',receipt.baseline+':'+path), current=nextPriorSource(path,readFileSync(new URL(path,cwd)))
     assert.deepEqual([sha(original),sha(current)],[receipt.changed[path].before,receipt.changed[path].after],path)

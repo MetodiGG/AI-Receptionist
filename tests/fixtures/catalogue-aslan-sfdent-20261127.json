@@ -1,0 +1,58 @@
+{
+  "baseline": "564ac408d30e48a55b63405bd9deb115540774e9",
+  "changed": {
+    "lib/catalogue-service-photo-keys.mjs": {
+      "before": "70cd650c7aee882811dbe7432c8fd6d7cfbe84414b7431dc43cb0e4cfb115d7c",
+      "after": "c62fadcfb8e35f991b16b51838018505f7f22402e2e791d54df8a50ce1181c64"
+    },
+    "lib/discovery-photo-ownership.json": {
+      "before": "342904ed3dcfeb6a4f481a9e0524716d162d9f27243671bae489c7867765a8e7",
+      "after": "62d4b80717de9fa64d642acda25d1474a91d863d8e5b2d84c59cf4d4c0d67ab5"
+    },
+    "lib/discovery/catalogue-data/pricing-booking-review-v1.mjs": {
+      "before": "54297982a5439a59b687304bf4d33c50a4e9d3db9fb3aaa8c35f13c89dce379c",
+      "after": "65271448ba07dcf7ab038e8dd22e797e0142b0a8585a37d337873e03e859ef23"
+    },
+    "lib/discovery/catalogue-expired-offer-holds.mjs": {
+      "before": "809994b0a98cef171bf440e29b09b6c83fd37e192e5e34b2bc5425685056ccb9",
+      "after": "500c15b1cd5436f3e2bf99b2056da1e64d5f1b1a518ee683dee52660de48bbbb"
+    },
+    "lib/discovery/sofia-catalogue.mjs": {
+      "before": "6e1313920ec646e1376d665f179c34a74df0c80fc32af5779d9e0d3c38cb21ba",
+      "after": "9879fe7677f9a0d7c48f43b78a9cc0c69701df8f563133f175ea769c449cbd84"
+    },
+    "lib/locale/service-english.json": {
+      "before": "cedfbc37ccb4c618b7365141d19122b9853202be18c1cea34b8d272f8e62a223",
+      "after": "ceae41eabb89af4dbadcfd1dc19335288d429467d513162339e8189376cb436b"
+    },
+    "lib/public-business-cover-photo.mjs": {
+      "before": "ec8e65ac96ccae027ff3105d2cef04ce6d67cfd457f154b084dbee9833433f9f",
+      "after": "72c5713acd89d4470133cba9eb60b09e89182ba2f7dc860b1a4cb0e3edf5e1a2"
+    },
+    "lib/specific-service-photo-ids.mjs": {
+      "before": "4a13b7f72cb4f149aa418ec97c73a2a82ca47ed3d5677635e502fa9906fd4385",
+      "after": "8382d736d4ec2b64ba6f065ff3dcae9692361b2b15d93cf8358597ec548b7040"
+    }
+  },
+  "added": {
+    "docs/catalogue-coverage/aslan-poligona-sf-dent-izgrev-20261127.md": "7e6b34d52cfe3c967e041e74a047c6fdafd05ad35059d8594a59d52f630c3d61",
+    "lib/discovery/catalogue-data/neighborhood-verified-aslan-poligona-20261127.mjs": "25e26b376570a5c7630c184265eacec57486ee12d6a2f18b90158c8639fc616f",
+    "lib/discovery/catalogue-data/sf-dent-izgrev-point-20261127.mjs": "0a56d2aeba0ce7a76851b56d9dadd84c920d031064705b631fa645ac8906ef78",
+    "public/business-cover-photos/go-aslan-poligona-20261127-v1.webp": "bab705e87a7303ed58bc3c1bdd020baaba2e3d86fe3c9c20ef6ab9aa9cee0635",
+    "public/service-photos/go-aslan-nvo-single-20261127-v1.webp": "c479c37eb747a1560b7aa9391efddbebb0bb2e1fccf8fc22aedc37f6c8897daf",
+    "public/service-photos/go-aslan-nvo-two-20261127-v1.webp": "f40751d23ecf74c58c94545c781c369ed97ad87cd81185c480c0f43c9c907386"
+  },
+  "baselineCatalogueSha256": "4bb13333c9259148e9c499f529818db90c42ea7efcc61db5649462f3ff8ecce2",
+  "currentCatalogueSha256": "db0fb2eb2b51c104227b7fded70d394bcaa3732f98ed3da6617d175d52f67938",
+  "records": [
+    {
+      "id": "sofia-aslan-poligona-block44",
+      "sha256": "362e4a64268349db2816d2e32ff44fe70100f0c35d88a57ef18e6fc3028e8e12"
+    }
+  ],
+  "location": {
+    "id": "sofia-sf-dent",
+    "before": "e6a3e1c00f81d1aea058ee616de0ef38a1513e911fbaf02c720230004bd3ca91",
+    "after": "ceb2625d5db54213409e7f2a726bd8f6cdeaeffc39efd67aa04c5ac0345cf135"
+  }
+}

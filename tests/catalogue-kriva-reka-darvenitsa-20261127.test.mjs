@@ -11,7 +11,7 @@ import { catalogueProfileView } from '../lib/catalogue-profile.mjs'
 import { businessCoverPhotoSources } from '../lib/public-business-cover-photo.mjs'
 import { publicDetailServiceThumbnail } from '../lib/service-detail-photo-presentation.mjs'
 import { RAW_SOFIA_CATALOGUE as RAW_LIVE, SOFIA_CATALOGUE as LIVE } from '../lib/discovery/sofia-catalogue.mjs'
-import { allowsNewFile as nextNew, priorSource as nextPriorSource, priorCatalogue as nextPriorCatalogue } from './catalogue-orlyak-banishora-20261127-scope.mjs'
+import { allowsFileChange as nextChange, allowsNewFile as nextNew, priorSource as nextPriorSource, priorCatalogue as nextPriorCatalogue } from './catalogue-orlyak-banishora-20261127-scope.mjs'
 import { compareDiscoveryPhotos, fingerprintDiscoveryPhoto, readDiscoveryImage } from '../scripts/discovery-photo-fingerprint.mjs'
 
 const sha = bytes => createHash('sha256').update(bytes).digest('hex')
@@ -24,7 +24,9 @@ test('exact receipt permits only two new businesses and one guarded, coordinate-
   const changed = Object.keys(receipt.changed), added = Object.keys(receipt.added)
   const touched = new Set([git('diff','--name-only','--no-renames','-z',receipt.baseline,'--'),
     git('ls-files','--others','--exclude-standard','-z')].flatMap(bytes => bytes.toString().split('\0').filter(Boolean)))
-  assert.deepEqual([...touched].filter(p => p !== 'node_modules' && !p.startsWith('tests/') && !nextNew(p)).sort(), [...changed,...added].sort())
+  const reviewedPaths = new Set([...changed, ...added])
+  assert.deepEqual([...touched].filter(path => path !== 'node_modules' && !path.startsWith('tests/') &&
+    (reviewedPaths.has(path) || !(nextChange(path) || nextNew(path)))).sort(), [...reviewedPaths].sort())
   for (const path of changed) {
     const bytes = nextPriorSource(path, readFileSync(new URL(path, root))), before = git('show', receipt.baseline+':'+path)
     assert.equal(sha(before), receipt.changed[path].before, path)

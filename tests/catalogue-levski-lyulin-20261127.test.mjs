@@ -26,7 +26,7 @@ import pointsProof from '../docs/catalogue-coverage/lyulin9-10-verified-points-2
 import schoolProof from '../docs/catalogue-coverage/ramirus-levski-v-20261127.json' with { type:'json' }
 import receipt from './fixtures/catalogue-levski-lyulin-20261127.json' with { type:'json' }
 import { levskiLyulinAllowsPath, levskiLyulinPriorCatalogue, levskiLyulinPriorSource } from './catalogue-levski-lyulin-20261127-scope.mjs'
-import { allowsNewFile as nextNew, priorCatalogue as nextPriorCatalogue, priorSource as nextPriorSource }
+import { allowsFileChange as nextChange, allowsNewFile as nextNew, priorCatalogue as nextPriorCatalogue, priorSource as nextPriorSource }
   from './catalogue-smirnenski-karadzha-mladost-20261127-scope.mjs'
 
 const RAW_SOFIA_CATALOGUE = nextPriorCatalogue(RAW_LIVE), SOFIA_CATALOGUE = nextPriorCatalogue(LIVE)
@@ -48,7 +48,9 @@ test('independently pinned changes do not replace any other source bytes or earl
   const changed = Object.keys(receipt.changed), added = Object.keys(receipt.added)
   const observed = [...new Set([...paths(git('diff','--name-only','--no-renames','-z',receipt.baseline,'--')),
     ...paths(git('ls-files','--others','--exclude-standard','-z'))])]
-  assert.deepEqual(observed.filter(path=>path!=='node_modules' && !path.startsWith('tests/') && !nextNew(path)).sort(),[...changed,...added].sort())
+  const reviewedPaths = new Set([...changed, ...added])
+  assert.deepEqual(observed.filter(path => path !== 'node_modules' && !path.startsWith('tests/') &&
+    (reviewedPaths.has(path) || !(nextChange(path) || nextNew(path)))).sort(), [...reviewedPaths].sort())
   for (const path of changed) {
     const oldBytes = git('show', receipt.baseline + ':' + path), newBytes = nextPriorSource(path, readFileSync(new URL(path, cwd)))
     assert.deepEqual([sha(oldBytes),sha(newBytes)], [receipt.changed[path].before,receipt.changed[path].after],path)

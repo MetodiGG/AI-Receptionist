@@ -23,7 +23,7 @@ import { railExternalAction } from '../lib/discovery/rail.mjs'
 import { catalogueCoverageReport } from '../scripts/catalogue-coverage-report.mjs'
 import { neighborhoodAdditionsAllowsFileChange, neighborhoodAdditionsAllowsNewFile,
   neighborhoodAdditionsPriorCatalogue, neighborhoodAdditionsPriorSource } from './catalogue-verified-neighborhood-additions-20261127-scope.mjs'
-import { branchLocationFollowupAllowsNewFile, branchLocationFollowupPriorCatalogue,
+import { branchLocationFollowupAllowsFileChange, branchLocationFollowupAllowsNewFile, branchLocationFollowupPriorCatalogue,
   branchLocationFollowupPriorSource } from './catalogue-branch-location-followup-20261127-scope.mjs'
 
 const root = new URL('../', import.meta.url)
@@ -42,7 +42,7 @@ test('the wave adds only sealed profiles, receipt entries, translations and matc
   const { changed, added } = seal
   const observed = [...new Set([...paths(git('diff', '--name-only', '--no-renames', '-z', seal.baseline, '--')),
     ...paths(git('ls-files', '--others', '--exclude-standard', '-z'))])].filter(path => path !== 'node_modules' && !path.startsWith('tests/') &&
-      !branchLocationFollowupAllowsNewFile(path)).sort()
+      !branchLocationFollowupAllowsNewFile(path) && (Object.hasOwn(changed, path) || !branchLocationFollowupAllowsFileChange(path))).sort()
   assert.deepEqual(observed, [...Object.keys(changed), ...Object.keys(added)].sort())
   assert.ok(!observed.some(path => /^(?:app|components|public|supabase)\//u.test(path)))
   for (const [path, approval] of Object.entries(changed)) {

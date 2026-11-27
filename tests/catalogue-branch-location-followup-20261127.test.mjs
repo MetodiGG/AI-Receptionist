@@ -13,11 +13,13 @@ import { normalizeCatalogueBusinesses } from '../lib/discovery/catalogue-search.
 import { OFFICIAL_SOFIA_CSV_SHA256, OFFICIAL_SOFIA_SOURCE_URL } from '../lib/discovery/official-sofia-address-source.mjs'
 import { createPublicBusinessDetailsHandler } from '../lib/discovery/public-details.mjs'
 import { railDirections, railExternalAction } from '../lib/discovery/rail.mjs'
-import { RAW_SOFIA_CATALOGUE, SOFIA_CATALOGUE } from '../lib/discovery/sofia-catalogue.mjs'
+import { RAW_SOFIA_CATALOGUE as liveRaw, SOFIA_CATALOGUE as live } from '../lib/discovery/sofia-catalogue.mjs'
 import { catalogueCoverageReport } from '../scripts/catalogue-coverage-report.mjs'
 import { catalogueIntakeAllowsPath, catalogueIntakePriorCatalogue, catalogueIntakePriorSource } from './catalogue-mopart-20261127-scope.mjs'
 import { branchLocationFollowupAllowsFileChange, branchLocationFollowupAllowsNewFile, branchLocationFollowupAllowsPath,
   branchLocationFollowupPriorSource, branchLocationFollowupPriorCatalogue } from './catalogue-branch-location-followup-20261127-scope.mjs'
+import { garage46AllowsFileChange, garage46AllowsNewFile, garage46AllowsPath,
+  garage46PriorCatalogue, garage46PriorSource } from './catalogue-garage46-serdika-20261127-scope.mjs'
 import receipt from './fixtures/catalogue-branch-location-followup-20261127.json' with { type: 'json' }
 import report from '../docs/catalogue-coverage/branch-location-followup-20261127.json' with { type: 'json' }
 
@@ -43,6 +45,7 @@ const expected = {
     latitude: 42.7000931, longitude: 23.2887158, addressId: null,
   },
 }
+const [RAW_SOFIA_CATALOGUE, SOFIA_CATALOGUE] = [liveRaw, live].map(garage46PriorCatalogue)
 const oldSofia = branchLocationFollowupPriorCatalogue(SOFIA_CATALOGUE)
 
 test('the successor receipt is limited to one catalogue entry point, its location patch and report', () => {
@@ -52,9 +55,10 @@ test('the successor receipt is limited to one catalogue entry point, its locatio
   assert.deepEqual(Object.keys(receipt.added).sort(), added)
   const paths = [...new Set([...files(git('diff', '--name-only', '--no-renames', '-z', receipt.baseline, '--')),
     ...files(git('ls-files', '--others', '--exclude-standard', '-z'))])]
-  assert.deepEqual(paths.filter(path => path !== 'node_modules' && !path.startsWith('tests/')).sort(), [...added, cataloguePath].sort())
+  assert.deepEqual(paths.filter(path => path !== 'node_modules' && !path.startsWith('tests/') && !garage46AllowsNewFile(path) &&
+    (path === cataloguePath || !garage46AllowsFileChange(path))).sort(), [...added, cataloguePath].sort())
   const before = git('show', receipt.baseline + ':' + cataloguePath)
-  const current = readFileSync(new URL(cataloguePath, cwd))
+  const current = garage46PriorSource(cataloguePath, readFileSync(new URL(cataloguePath, cwd)))
   assert.equal(sha(before), receipt.changed[cataloguePath].before)
   assert.equal(sha(current), receipt.changed[cataloguePath].after)
   assert.ok(branchLocationFollowupAllowsFileChange(cataloguePath) && catalogueIntakeAllowsPath(cataloguePath))
@@ -70,7 +74,7 @@ test('the successor receipt is limited to one catalogue entry point, its locatio
   }
   for (const path of ['lib/discovery/catalogue-data/pricing-booking-review-v1.mjs', 'lib/booking-engine.mjs',
     'lib/locale/service-english.json', 'public/logo.svg', 'app/layout.js', 'supabase/config.toml']) {
-    assert.equal(branchLocationFollowupAllowsPath(path), false, path)
+    assert.equal(branchLocationFollowupAllowsPath(path), garage46AllowsPath(path), path)
   }
 })
 

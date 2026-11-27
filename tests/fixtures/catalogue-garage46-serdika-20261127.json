@@ -1,0 +1,47 @@
+{
+  "baseline": "96c35c471791cf6e8a2d7dbcae93a490b5edc948",
+  "baselineCatalogueSha256": "e1e750692c6d8de074dcbe6f2ac01a57b9da82b7886dd5f19ed2cf3697806bbd",
+  "currentCatalogueSha256": "d967a562730e5384f7872a42fc82555e71f012a06215a001533c1b1c7e87553f",
+  "changed": {
+    "docs/specific-service-photo-generation-2026-11-12.json": {
+      "before": "0eff428030fcc54b6b44cbb52cf5eedd4c7d152e16b2ff24b037ad737d456e1c",
+      "after": "b8f97aaecbb6ac6c13cc355a647f1849595eef2e78ef07e4d1252cd8bb63cd8d"
+    },
+    "lib/catalogue-service-photo-keys.mjs": {
+      "before": "7d00b6ae4aa18126e543ed0a3b55b6eff38d0212cabb9ee2a9ef277bc38057de",
+      "after": "f8eb3efca2725af2d2e4039f24fa0023bfb35f159960d512a27e03e9539e48e6"
+    },
+    "lib/discovery/catalogue-data/pricing-booking-review-v1.mjs": {
+      "before": "842df321f8056ffdc118e5480d7a2039f76a4413f54e477b026992816e7824e8",
+      "after": "edca4d786f7c5c110c80f5da327e68317f0d7408febd9bdbfecc70f5167e4c65"
+    },
+    "lib/discovery/sofia-catalogue.mjs": {
+      "before": "0d9e5d97b37358295f2d873c4e1c6fed6210fa0689df5d758fdfd32afcad6c22",
+      "after": "2e5c2c4a5da15277a3425c9b6142d513879e7c1488700009681d77bbddad602b"
+    },
+    "lib/locale/service-english.json": {
+      "before": "c9268101523acf9cd35206a8ca76c55e7c5607203c55861675fd19fe73ac40bb",
+      "after": "3fafc7470f98ffa2338eaaecc70a6c30a3df1f11c4527b15f780fc8cec5021b7"
+    },
+    "lib/public-business-cover-photo.mjs": {
+      "before": "56a6937b97ddbe09f046c24f04422111c184727ffe7afa9c60180cbd9d6a4a1f",
+      "after": "177bf0ad84ebb4f1f8a20b8bd4f783f9cd3a9b724eda97d4de56a311ac945eef"
+    },
+    "lib/specific-service-photo-ids.mjs": {
+      "before": "92fb165afa074aaab7ff0fd61b7d2ae3a4c28a2b2cdfec16a169c5f783e059bf",
+      "after": "f7360c32d3698846f864a62ca2961d5d188da3023eeeb8564f9f34f7ea3c38f2"
+    }
+  },
+  "added": {
+    "docs/catalogue-coverage/garage46-serdika-20261127.json": "b9f3798c0cc20bf73210755ea8971fe52b936d189dc410616e0e8ada84078617",
+    "lib/discovery/catalogue-data/neighborhood-verified-garage46-serdika-20261127.mjs": "709b8070dcdc4fcb393fc36c7e16920168b9b80fec44692e7f6b9b29462a2f82",
+    "public/business-cover-photos/go-garage46-serdika-20261127-v1.webp": "9419374eb09363fbb0e5fed607b5bbbd7c68a90fa956b306781146b0b9364af7",
+    "public/service-photos/sx-auto-headlamp-assembly-replacement-v1.webp": "151e7130124a8d073c68bf7cecf6383d7e1d23904d5ece5d23c83e63911cb5c1"
+  },
+  "records": [
+    {
+      "id": "sofia-garage46-serdika-ivanivanov67",
+      "sha256": "f2a2fc09c6ae2adf1af5bd5fb71f7c86c0f9abe664eff79858594b9d5eed491a"
+    }
+  ]
+}

@@ -1,0 +1,51 @@
+{
+  "reviewedOn": "2026-11-27",
+  "baseCommit": "96c35c471791cf6e8a2d7dbcae93a490b5edc948",
+  "scope": "Local Sofia catalogue. One distinct branch; no native bookings, calendars, notifications or public deployment.",
+  "newDistinctBusinesses": 1,
+  "verified": [
+    {
+      "id": "sofia-garage46-serdika-ivanivanov67",
+      "name": "Garage46 · Сердика",
+      "neighborhood": "Сердика",
+      "category": "auto_repair",
+      "subcategory": "auto_repair-electrics",
+      "address": "София, ж.к. Сердика, бул. Инж. Иван Иванов 67",
+      "booking": "https://garage46.bg/pages/garage46-montaj-na-led-krushki-v-grad-sofia-serdika",
+      "ownerForm": "https://garage46.bg/pages/garage46-montaj-na-led-krushki-v-grad-sofia-serdika#zapazi-chas",
+      "ownerTariff": "https://garage46.bg/pages/garage46-montaj-na-led-krushki-v-grad-sofia-serdika#uslugi",
+      "ownerMap": "https://maps.app.goo.gl/HXoSs6EQiDMDh4vNA",
+      "phone": "+359887737477",
+      "point": { "method": "first_party_coordinates", "latitude": 42.6901267, "longitude": 23.2878061 },
+      "identity": "The exact branch landing page both embeds its coordinates and links to a named Google marker with the identical destination. The site displays an entrance at its service partner; treat the overlapping installer contact as one public premises. No existing record matches its website domain, full address or appointment line. Civic points for 67 are not treated as the operator’s entrance.",
+      "pricingIdentity": "ec648a2faa49ac39ef71df3b3f0a33f1944ab07b3de1ea3c2da308a8ba34da56",
+      "services": [
+        { "name": "Монтаж на LED крушки за фарове · автоелектроника", "kind": "from", "amount": 15, "currency": "EUR", "condition": "Labour; fitting includes headlamp aiming. Headlight bulbs are separate, from EUR 60.", "photo": "/service-photos/sx-auto-bulb-check-replace-v1.webp" },
+        { "name": "Регулиране на фарове · автоелектроника", "kind": "from", "amount": 15, "currency": "EUR", "condition": "Standalone alignment; no separate charge when LED fitting is booked.", "photo": "/service-photos/sx-auto-headlight-align-v1.webp" },
+        { "name": "Смяна на фарове · автоелектроника", "kind": "from", "amount": 35, "currency": "EUR", "condition": "Remove and fit an assembly; the published price does not specify the new assembly’s cost.", "photo": "/service-photos/sx-auto-headlamp-assembly-replacement-v1.webp" }
+      ],
+      "cover": {
+        "publicPath": "/business-cover-photos/go-garage46-serdika-20261127-v1.webp",
+        "sourceFile": "exec-a9799775-e836-4263-afb4-5422bf0a2d59.png",
+        "sourceSha256": "989ea73e9c83e197f7ba0a48d846ad9fafc0d88f3229ba5868be24cbfed8e1c3",
+        "sha256": "9419374eb09363fbb0e5fed607b5bbbd7c68a90fa956b306781146b0b9364af7",
+        "width": 720,
+        "height": 540,
+        "bytes": 56480,
+        "tool": "built-in image_gen",
+        "prompt": "Use case: photorealistic-natural. Create one landscape 4:3 catalogue cover illustration for a headlight bulb fitting and alignment service. Generic independent, unbranded Bulgarian-style automotive workshop, soft neutral daylight. A pearl silver compact European-style hatchback is parked in a clean but lived-in bay, bonnet raised; smooth low front three-quarter view, entire front corner and the unlit intact clear headlamp visible, one mechanic in charcoal workwear in profile at a comfortable distance working behind the fixed headlamp, subtle working-hand gesture as they reach for the bulb socket. Recognizably about headlamp fitting, not polishing; no removed assembly, no close-up of gloves holding a loose headlamp, no green optical alignment machine. Modest realistic scene, no flashy effects. Keep the car and the mechanic visible within the central 75 percent and allow safe crop. No signage, logos, plate number, readable text or overlay. Fictional scene, not a representation of any named business, its premises or staff.",
+        "review": "Fictional mechanic fitting a bulb to a fixed headlight, camera outside the car on a wider view. Not an authentic photo of the premises, operator or staff. Cover and separately pictured service procedures use visibly distinct scenes. Existing AI cover disclosure retained."
+      }
+    }
+  ],
+  "coverage": {
+    "checkedCells": 1750,
+    "targetPerQuarterCategory": 30,
+    "approvedSofiaBusinesses": [1784, 1785],
+    "premisesWithBoundPoint": [1040, 1041],
+    "emptyPhysicalCells": [1242, 1241],
+    "emptyLocatedCells": [1324, 1323],
+    "locatedCellsAtTarget": [0, 0],
+    "selectedCell": { "neighborhood": "Сердика", "category": "auto_repair", "physical": [0, 1], "located": [0, 1] }
+  }
+}

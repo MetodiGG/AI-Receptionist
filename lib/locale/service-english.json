@@ -427,6 +427,9 @@
     ]
   },
   "names": {
+    "Монтаж на LED крушки за фарове · автоелектроника": "LED headlight bulb fitting",
+    "Регулиране на фарове · автоелектроника": "Headlight alignment",
+    "Смяна на фарове · автоелектроника": "Headlight assembly replacement",
     "Състезателна математика · 1.–4. клас": "Competition Maths · Grades 1–4",
     "Козметична грижа за лице · Express Skin Reset": "Cosmetic facial · Express Skin Reset",
     "Интериорна консултация · пакет „Бърз съвет“ при Нели Николова": "Interior design consultation · Quick Advice package with Neli Nikolova",
@@ -6568,6 +6571,9 @@
     "смяна на предпазен клапан на бойлер": "change of boiler safety valve"
   },
   "descriptions": {
+    "Начална цена за монтаж; крушките се заплащат отделно (от 60 € за фарове). Реглажът е включен. Крайната цена зависи от модела и сложността на монтажа и се уточнява предварително.": "Starting fitting price. Bulbs are extra (headlight bulbs from €60). Headlight alignment is included. The final quote depends on the vehicle model and complexity, and is agreed before work starts.",
+    "Начална цена за самостоятелно регулиране на светлинния сноп. При монтаж на LED крушки в този център реглажът е включен и не се таксува отделно.": "Starting price for standalone headlight alignment. Alignment is included with LED bulb fitting at this branch and is not charged separately in that case.",
+    "Начална цена за демонтаж и монтаж на фар. Крайната сума се уточнява предварително за конкретния автомобил; цена на новия фар не е посочена.": "Starting price for removing and fitting a headlight assembly. The final quote is agreed for the vehicle in advance. The source does not give the price of the new assembly.",
     "Присъствено групово занятие с логически и състезателни задачи. Възможни са включване през учебната година и еднократен урок с предварително записване.": "An in-person group lesson with logic and competition problems. Join during the school year or book a one-off lesson in advance.",
     "Почистване на лице, лека ексфолиация, хидратиращ серум и слънцезащита. Цената се уточнява при записване.": "Facial cleansing, gentle exfoliation, hydrating serum and sun protection. Confirm the price when booking.",
     "Интериорна консултация с арх. Нели Николова. Избери присъствена среща в студиото или онлайн консултация при записване.": "Interior design consultation with architect Neli Nikolova. Choose an in-studio or online consultation when booking.",
@@ -8463,6 +8469,8 @@
     "Часът се уговаря с преподавателя; първоначално се изготвя индивидуален график.": "The class is arranged with the lecturer; an individual schedule is initially drawn up."
   },
   "units": {
+    "монтаж, без крушки": "fitting, bulbs excluded",
+    "самостоятелен реглаж": "standalone alignment",
     "за пакет": "per package",
     "за теста": "for the assessment",
     "на урок при срок от 11 урока": "per lesson in an 11-lesson term",

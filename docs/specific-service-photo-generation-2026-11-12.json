@@ -4,6 +4,26 @@
   "scope": "Illustrative service-specific photos for approved Sofia catalogue entries; not actual business premises, staff, work or results.",
   "assets": [
     {
+      "id": "sx-auto-headlamp-assembly-replacement",
+      "label": "Смяна на фарове · автоелектроника",
+      "sourceFile": "exec-676e88e8-b858-4321-911f-92e1ecad6162.png",
+      "sourceSha256": "72b8c92498f7e2c3086e1a3a3074c5513bf03fa2c88e14eb691469bcc75bee5e",
+      "bytes": 17182,
+      "sha256": "151e7130124a8d073c68bf7cecf6383d7e1d23904d5ece5d23c83e63911cb5c1",
+      "prompt": "Use case: photorealistic-natural. Asset: square GoRez catalogue service illustration, legible at 128 px. In a generic unbranded auto workshop, an authentic close-up: a pair of mechanic's black-gloved hands supports the entire detached modern car headlamp assembly immediately beside its open matching mounting recess in the front corner of a muted dark teal compact car with bonnet open. One assembly, intact clear multi-reflector lens and black plastic housing with believable mounting tabs; this is replacement of the whole headlamp, not a bulb change, light beam aiming, sanding, or polishing. Natural workshop daylight, realistic worn fabric and material texture, no glamor. Tight three-quarter framing, with the whole lens and cavity clearly visible in the center and with 10 percent margins safe for square cropping. No face needed, no logos or brands, no legible text, no license plates, no overlay or watermark. Generic illustration, not a real business or its premises.",
+      "file": "public/service-photos/sx-auto-headlamp-assembly-replacement-v1.webp",
+      "width": 256,
+      "height": 256,
+      "generatedOn": "2026-11-27",
+      "review": {
+        "status": "accepted",
+        "finalLayoutApproved": true,
+        "sourceSha256": "72b8c92498f7e2c3086e1a3a3074c5513bf03fa2c88e14eb691469bcc75bee5e",
+        "reviewers": ["/root"],
+        "method": "Visually reviewed the generated whole-headlamp removal scene and the final square WebP. The single complete headlamp housing and open mounting recess read distinctly from the separate bulb and optical alignment scenes. Illustrative, not a photograph of the operator, and not the catalogue cover."
+      }
+    },
+    {
       "id": "sx-indoor-clay-tennis-court",
       "label": "Наем на закрит тенис корт с клей",
       "sourceFile": "exec-e1fbfe5d-6487-4b05-9563-019f912f1fdc.png",

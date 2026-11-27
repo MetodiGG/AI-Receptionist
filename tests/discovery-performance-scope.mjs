@@ -5,21 +5,25 @@ import { fileURLToPath } from 'node:url'
 import receipt from './fixtures/discovery-performance-approval.json' with { type: 'json' }
 import { detailPreviewAllowsFileChange, detailPreviewAllowsNewFile, detailPreviewPriorSource } from './public-detail-photo-preview-scope.mjs'
 import { catalogueIntakeAllowsFileChange, catalogueIntakeAllowsNewFile, catalogueIntakePriorSource } from './catalogue-mopart-20261127-scope.mjs'
+import { garage46PriorSource } from './catalogue-garage46-serdika-20261127-scope.mjs'
 
 const root = fileURLToPath(new URL('../', import.meta.url))
 const sha = bytes => createHash('sha256').update(bytes).digest('hex')
 const prior = new Map()
 
-function currentHash(path, digest) {
+function currentHash(path, digest, priorSource = (_, source) => source) {
   if (!digest) return false
   try {
     const file = new URL('../' + path, import.meta.url), stat = lstatSync(file)
-    return stat.isFile() && !(stat.mode & 0o111) && sha(readFileSync(file)) === digest
+    return stat.isFile() && !(stat.mode & 0o111) && sha(priorSource(path, readFileSync(file))) === digest
   } catch { return false }
 }
 
 export const discoveryPerformanceAllowsFileChange = path => catalogueIntakeAllowsFileChange(path) || detailPreviewAllowsFileChange(path) || currentHash(path, receipt.changed[path]?.after)
-export const discoveryPerformanceAllowsNewFile = path => catalogueIntakeAllowsNewFile(path) || detailPreviewAllowsNewFile(path) || currentHash(path, receipt.added[path])
+// The original cover-only module was NEW here and later acquired one sealed
+// branch illustration. Verify its exact preimage, not just a known pathname.
+export const discoveryPerformanceAllowsNewFile = path => catalogueIntakeAllowsNewFile(path) || detailPreviewAllowsNewFile(path) ||
+  currentHash(path, receipt.added[path], garage46PriorSource)
 export const discoveryPerformanceAllowsPath = path => discoveryPerformanceAllowsFileChange(path) || discoveryPerformanceAllowsNewFile(path)
 
 // Keep previous approvals enforceable. Only revert a reviewed whole-file

@@ -10,6 +10,7 @@ import { VERIFIED_DIANABAD_INSPECTION_20261127_REVIEWS } from '../lib/discovery/
 import { VERIFIED_HLADILNIKA_NN_20261127_REVIEWS } from '../lib/discovery/catalogue-data/neighborhood-verified-hladilnika-nn-20261127.mjs'
 import { VERIFIED_HIPODRUMA_HAIRLESS_20261127_REVIEWS } from '../lib/discovery/catalogue-data/neighborhood-verified-hipodruma-hairless-20261127.mjs'
 import { VERIFIED_REDUTA_ABV_20261127_REVIEWS } from '../lib/discovery/catalogue-data/neighborhood-verified-reduta-abv-20261127.mjs'
+import { GARAGE46_SERDIKA_20261127_REVIEWS } from '../lib/discovery/catalogue-data/neighborhood-verified-garage46-serdika-20261127.mjs'
 import { pricingIdentity, assessPricingReview, auditCataloguePricing } from '../lib/discovery/catalogue-pricing-review.mjs'
 import report from '../docs/catalogue-pricing/booking-flow-audit-20261110.json' with { type: 'json' }
 import { NEIGHBORHOOD_20261111_REVIEWS } from '../lib/discovery/catalogue-data/neighborhood-expansion-20261111.mjs'
@@ -253,6 +254,7 @@ test('dated audit receipts cover every current ID without rewriting the historic
     [VERIFIED_HLADILNIKA_NN_20261127_REVIEWS, 'sofia-nn-architecture-hladilnika-banat34', 'reviewed', '2026-11-27T12:00:00Z'],
     [VERIFIED_HIPODRUMA_HAIRLESS_20261127_REVIEWS, 'sofia-hairless-hipodruma-hanpresiyan15', 'service_reviewed', '2026-11-27T12:00:00Z'],
     [VERIFIED_REDUTA_ABV_20261127_REVIEWS, 'sofia-abv-academy-reduta-velcho-atanasov53', 'service_reviewed', '2026-11-27T12:00:00Z'],
+    [GARAGE46_SERDIKA_20261127_REVIEWS, 'sofia-garage46-serdika-ivanivanov67', 'reviewed', '2026-11-27T12:00:00Z'],
   ]) {
     assert.deepEqual(reviews.map(row => row.id), [id])
     assert.equal(auditedIds.has(id), false)
